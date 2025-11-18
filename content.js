@@ -35,6 +35,12 @@ const siteConfigs = {
     cssProperty: 'max-width',
     fullValue: '100%',
     wideValue: 'calc(100% - 240px)'
+  },
+  'grok.com': {
+    selector: ['.max-w-\\[var\\(--content-max-width\\)\\]', '.max-w-\\[--content-max-width\\]'],
+    cssProperty: 'max-width',
+    fullValue: '96%',
+    wideValue: 'calc(100% - 240px)'
   }
 };
 
@@ -73,19 +79,31 @@ function applyWidth(mode) {
   style.id = 'ai-width-controller-style';
   
   let cssRules = '';
+
+  let selector = config.selector;
   
   if (mode === 'full') {
+    if (Array.isArray(config.selector)) {
+      selector = config.selector.map(s => `body.full ${s}`).join(',');
+    } else {
+      selector = `body.full ${config.selector}`;
+    }
     // 全宽模式
     cssRules = `
-      body.full ${config.selector} {
+      ${selector} {
         ${config.cssProperty}: ${config.fullValue} !important;
       }
     `;
     document.body.classList.add('full');
   } else if (mode === 'wide') {
     // 较宽模式（两边各120px）
+    if (Array.isArray(config.selector)) {
+      selector = config.selector.map(s => `body.wide ${s}`).join(',');
+    } else {
+      selector = `body.wide ${config.selector}`;
+    }
     cssRules = `
-      body.wide ${config.selector} {
+      ${selector} {
         ${config.cssProperty}: ${config.wideValue} !important;
       }
     `;

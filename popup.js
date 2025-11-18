@@ -38,7 +38,8 @@ async function setWidthMode(mode) {
     'yuanbao.tencent.com',
     'chatgpt.com',
     'chat.openai.com',
-    'gemini.google.com'
+    'gemini.google.com',
+    'grok.com'
   ];
   
   const isSupported = supportedDomains.some(domain => tab.url.includes(domain));

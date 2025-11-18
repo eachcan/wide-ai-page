@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "AI Chat Width Controller",
   "version": "1.0.0",
-  "description": "一键切换 DeepSeek、豆包、元宝、ChatGPT、Gemini 等 AI 对话页面的宽度",
+  "description": "一键切换 DeepSeek、豆包、元宝、ChatGPT、Gemini、Grok 等 AI 对话页面的宽度",
   "permissions": [
     "storage",
     "activeTab"
@@ -28,7 +28,8 @@
         "*://yuanbao.tencent.com/*",
         "*://chatgpt.com/*",
         "*://chat.openai.com/*",
-        "*://gemini.google.com/*"
+        "*://gemini.google.com/*",
+        "*://grok.com/*"
       ],
       "js": ["content.js"],
       "css": ["content.css"],
