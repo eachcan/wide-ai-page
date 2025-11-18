@@ -1,0 +1,11 @@
+/* 基础样式，确保平滑过渡 */
+body.ai-width-full *,
+body.ai-width-wide * {
+  transition: max-width 0.3s ease, width 0.3s ease, margin 0.3s ease, padding 0.3s ease;
+}
+
+/* 防止内容溢出 */
+body.ai-width-full,
+body.ai-width-wide {
+  overflow-x: hidden;
+}

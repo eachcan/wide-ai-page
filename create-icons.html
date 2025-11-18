@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Icon Generator</title>
+</head>
+<body>
+  <h2>生成扩展图标</h2>
+  <p>打开浏览器控制台，图标会自动下载</p>
+  
+  <canvas id="canvas16" width="16" height="16"></canvas>
+  <canvas id="canvas48" width="48" height="48"></canvas>
+  <canvas id="canvas128" width="128" height="128"></canvas>
+
+  <script>
+    function createIcon(size) {
+      const canvas = document.getElementById(`canvas${size}`);
+      const ctx = canvas.getContext('2d');
+      
+      // 渐变背景
+      const gradient = ctx.createLinearGradient(0, 0, size, size);
+      gradient.addColorStop(0, '#667eea');
+      gradient.addColorStop(1, '#764ba2');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, size, size);
+      
+      // 绘制宽度图标
+      ctx.fillStyle = 'white';
+      const padding = size * 0.2;
+      const barHeight = size * 0.15;
+      const gap = size * 0.1;
+      
+      // 三条横线表示宽度调整
+      ctx.fillRect(padding, padding, size - padding * 2, barHeight);
+      ctx.fillRect(padding, size / 2 - barHeight / 2, size - padding * 2, barHeight);
+      ctx.fillRect(padding, size - padding - barHeight, size - padding * 2, barHeight);
+      
+      // 左右箭头
+      const arrowSize = size * 0.12;
+      const arrowY = size / 2;
+      
+      // 左箭头
+      ctx.beginPath();
+      ctx.moveTo(padding, arrowY);
+      ctx.lineTo(padding + arrowSize, arrowY - arrowSize);
+      ctx.lineTo(padding + arrowSize, arrowY + arrowSize);
+      ctx.closePath();
+      ctx.fill();
+      
+      // 右箭头
+      ctx.beginPath();
+      ctx.moveTo(size - padding, arrowY);
+      ctx.lineTo(size - padding - arrowSize, arrowY - arrowSize);
+      ctx.lineTo(size - padding - arrowSize, arrowY + arrowSize);
+      ctx.closePath();
+      ctx.fill();
+      
+      // 下载图标
+      canvas.toBlob(blob => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `icon${size}.png`;
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+    }
+    
+    // 生成所有尺寸的图标
+    setTimeout(() => {
+      createIcon(16);
+      setTimeout(() => createIcon(48), 200);
+      setTimeout(() => createIcon(128), 400);
+    }, 500);
+  </script>
+</body>
+</html>
