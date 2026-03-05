@@ -15,31 +15,55 @@ const siteConfigs = {
   'yuanbao.tencent.com': {
     selector: '.agent-chat__list__item__content',
     cssProperty: 'max-width',
-    fullValue: '100%',
+    fullValue: 'calc(100% - 40px)',
     wideValue: 'calc(100% - 240px)'
   },
   'chatgpt.com': {
     selector: '.max-w-\\(--thread-content-max-width\\)',
     cssProperty: 'max-width',
-    fullValue: '100%',
+    fullValue: 'calc(100% - 40px)',
     wideValue: 'calc(100% - 240px)'
   },
   'chat.openai.com': {
     selector: '.max-w-\\(--thread-content-max-width\\)',
     cssProperty: 'max-width',
-    fullValue: '100%',
+    fullValue: 'calc(100% - 40px)',
     wideValue: 'calc(100% - 240px)'
   },
   'gemini.google.com': {
     selector: '.conversation-container',
     cssProperty: 'max-width',
-    fullValue: '100%',
+    fullValue: 'calc(100% - 40px)',
     wideValue: 'calc(100% - 240px)'
   },
   'grok.com': {
     selector: ['.max-w-\\[var\\(--content-max-width\\)\\]', '.max-w-\\[--content-max-width\\]'],
     cssProperty: 'max-width',
-    fullValue: '96%',
+    fullValue: 'calc(100% - 40px)',
+    wideValue: 'calc(100% - 240px)'
+  },
+  'qianwen.com': {
+    selector: '[class*=scrollOutWrapper]',
+    cssProperty: 'max-width',
+    fullValue: 'calc(100% - 40px)',
+    wideValue: 'calc(100% - 240px)'
+  },
+  'kimi.com': {
+    selector: '.chat-content-list',
+    cssProperty: 'max-width',
+    fullValue: 'calc(100% - 40px)',
+    wideValue: 'calc(100% - 240px)'
+  },
+  'chatglm.cn': {
+    selector: '.conversation-item',
+    cssProperty: 'max-width',
+    fullValue: 'calc(100% - 40px)',
+    wideValue: 'calc(100% - 240px)'
+  },
+  'minimaxi.com': {
+    selector: '[class*="max-w-[768px]"]',
+    cssProperty: 'max-width',
+    fullValue: 'calc(100% - 40px)',
     wideValue: 'calc(100% - 240px)'
   }
 };

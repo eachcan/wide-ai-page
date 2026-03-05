@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "AI Chat Width Controller",
   "version": "1.0.0",
-  "description": "一键切换 DeepSeek、豆包、元宝、ChatGPT、Gemini、Grok 等 AI 对话页面的宽度",
+  "description": "一键切换 DeepSeek、豆包、元宝、千问、Kimi、智谱、MiniMax、ChatGPT、Gemini、Grok 等 AI 对话页面的宽度",
   "permissions": [
     "storage",
     "activeTab"
@@ -29,7 +29,12 @@
         "*://chatgpt.com/*",
         "*://chat.openai.com/*",
         "*://gemini.google.com/*",
-        "*://grok.com/*"
+        "*://grok.com/*",
+        "*://*.qianwen.com/*",
+        "*://www.kimi.com/*",
+        "*://kimi.moonshot.cn/*",
+        "*://chatglm.cn/*",
+        "*://agent.minimaxi.com/*"
       ],
       "js": ["content.js"],
       "css": ["content.css"],
